@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,37 +11,35 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
+    // Campos que podem ser preenchidos em massa (mass assignable)
     protected $fillable = [
         'name',
         'email',
         'password',
+        'perfil', // adicionamos o campo 'perfil' para diferenciar master e funcionária
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
+    // Campos que não devem ser expostos em arrays/JSON
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    // Casts para tipos específicos automaticamente
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed', // garante que a senha seja armazenada hash automaticamente
+    ];
+
+    // Método para verificar se o usuário é do perfil master
+    public function isMaster(): bool
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->perfil === 'master';
+    }
+
+    // Método para verificar se o usuário é do perfil funcionário
+    public function isFuncionario(): bool
+    {
+        return $this->perfil === 'funcionario';
     }
 }
