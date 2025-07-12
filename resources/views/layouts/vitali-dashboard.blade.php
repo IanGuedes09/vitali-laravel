@@ -72,7 +72,7 @@
                 </li>
                 <li>
                     <a href="{{ route('vitali.index') }}"
-                        class="block py-2 px-4 rounded-lg hover:bg-blue-600 transition {{ request()->routeIs('vitali.vitali.*') ? 'bg-blue-600' : '' }}">
+                        class="block py-2 px-4 rounded-lg hover:bg-blue-600 transition {{ request()->routeIs('vitali.index') ? 'bg-blue-600' : '' }}">
                         📁 Módulo Vitali
                     </a>
                 </li>
