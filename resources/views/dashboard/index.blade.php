@@ -9,7 +9,7 @@
 
     <p>Aqui você pode colocar links para seus módulos, relatórios, etc.</p>
 
-    <a href="{{ route('vitali.vitali.index') }}" class="text-blue-600 hover:underline font-semibold">
+    <a href="{{ route('vitali.index') }}" class="text-blue-600 hover:underline font-semibold">
         Ir para módulo Vitali
     </a>
 @endsection

@@ -13,6 +13,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('vitali', VitaliController::class);
 });
 
+
+
 // Grupo exclusivo para perfil master
 Route::middleware(['auth', 'master'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/teste', function () {
