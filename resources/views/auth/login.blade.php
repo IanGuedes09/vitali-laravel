@@ -38,9 +38,16 @@
             >
         </div>
 
-        <div class="mb-6 flex items-center">
-            <input id="remember" type="checkbox" name="remember" class="mr-2">
-            <label for="remember" class="text-gray-700 select-none">Lembrar-me</label>
+        <div class="mb-4 flex items-center justify-between">
+            <label class="inline-flex items-center text-gray-700">
+                <input id="remember" type="checkbox" name="remember" class="mr-2">
+                Lembrar-me
+            </label>
+
+            {{-- Link para recuperação de senha --}}
+            <a href="{{ route('password.request') }}" class="text-sm text-blue-600 hover:underline">
+                Esqueci minha senha
+            </a>
         </div>
 
         <button
@@ -50,4 +57,9 @@
             Entrar
         </button>
     </form>
+
+    <p class="mt-6 text-center text-gray-600">
+        Ainda não tem uma conta?
+        <a href="{{ route('register') }}" class="text-blue-600 hover:underline">Criar conta</a>
+    </p>
 @endsection

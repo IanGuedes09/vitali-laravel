@@ -21,7 +21,7 @@ class LoginCustomController extends Controller
 
         if (Auth::attempt($credentials, $request->has('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/vitali'); // página inicial após login
+            return redirect()->intended('/dashboard'); // página inicial após login
         }
 
         return back()->withErrors(['email' => 'Credenciais inválidas'])->onlyInput('email');
